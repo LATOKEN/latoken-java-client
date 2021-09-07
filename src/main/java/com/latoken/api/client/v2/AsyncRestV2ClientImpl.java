@@ -25,7 +25,6 @@ import com.latoken.api.client.v2.response.Transaction;
 import com.latoken.api.client.v2.response.Transfer;
 import com.latoken.api.client.v2.response.UserDetails;
 import com.latoken.api.client.v2.response.WithdrawalResponse;
-import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
@@ -45,6 +44,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -772,7 +772,7 @@ final class AsyncRestV2ClientImpl implements AsyncRestV2Client {
         String stringToSign = method + prefix;
         LOGGER.warn("signature string : '{}' : {}", stringToSign, stringToSign.hashCode());
         byte[] bytes = stringToSign.getBytes(StandardCharsets.UTF_8);
-        return HexBin.encode(this.crypto.doFinal(bytes)).toLowerCase();
+        return Base64.getEncoder().encodeToString(this.crypto.doFinal(bytes)).toLowerCase();
     }
 }
 
