@@ -54,8 +54,8 @@ final class SpringStompClient {
         this.connect(new WebSocketHttpHeaders());
     }
 
-    void connect(WebSocketHttpHeaders headers) throws Exception {
-        ListenableFuture<StompSession> session = stompClient.connect(url, headers, new StompSessionHandler() {
+    void connect(WebSocketHttpHeaders handshakeHeaders) throws Exception {
+        ListenableFuture<StompSession> session = stompClient.connect(url, handshakeHeaders, new StompSessionHandler() {
             @Override
             public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
                 logger.info("connected {}", session.getSessionId());

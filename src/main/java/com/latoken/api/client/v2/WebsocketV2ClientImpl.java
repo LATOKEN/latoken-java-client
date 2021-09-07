@@ -72,15 +72,15 @@ class WebsocketV2ClientImpl implements WebsocketV2Client {
     public void start() {
         try {
             logger.info("initiating websocket connection to {}", url);
-            // todo this is broken atm
+            // todo @Dmitry please help with this
             String now = Long.toString(System.currentTimeMillis());
             String sign = sign(now);
-            WebSocketHttpHeaders headers = new WebSocketHttpHeaders();
-            headers.add("X-LA-APIKEY", this.key);
-            headers.add("X-LA-SIGNATURE", sign);
-            headers.add("X-LA-DIGEST", "HMAC-SHA512");
-            headers.add("X-LA-SIGDATA", now);
-            this.client.connect(headers);
+            WebSocketHttpHeaders handshakeHeaders = new WebSocketHttpHeaders();
+            handshakeHeaders.add("X-LA-APIKEY", this.key);
+            handshakeHeaders.add("X-LA-SIGNATURE", sign);
+            handshakeHeaders.add("X-LA-DIGEST", "HMAC-SHA512");
+            handshakeHeaders.add("X-LA-SIGDATA", now);
+            this.client.connect(handshakeHeaders);
         } catch (Exception e) {
             throw new LatokenApiException("failed to start websocket client", e);
         }
