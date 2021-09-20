@@ -1,10 +1,18 @@
 package com.latoken.api.client.v2;
 
+import com.latoken.api.client.Shared;
+
 public class ExampleActiveCurrencies {
    public static void main(String[] args) throws Exception {
-      Shared.restV2()
-         .activeCurrencies()
-         .get() // we block since it's acceptable for this example
-         .forEach(System.out::println);
+      int s1 = Shared.restV2()
+          .activeCurrencies()
+          .get()
+          .size();
+      int s2 = Shared.restV2()
+          .availableCurrencies()
+          .get()
+          .size();
+      System.out.println(s1);
+      System.out.println(s2);
    }
 }

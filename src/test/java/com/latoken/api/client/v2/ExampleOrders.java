@@ -1,5 +1,6 @@
 package com.latoken.api.client.v2;
 
+import com.latoken.api.client.Shared;
 import com.latoken.api.client.v2.response.Order;
 
 public class ExampleOrders {

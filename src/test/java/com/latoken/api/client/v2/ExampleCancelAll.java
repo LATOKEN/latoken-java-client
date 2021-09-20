@@ -1,5 +1,7 @@
 package com.latoken.api.client.v2;
 
+import com.latoken.api.client.Shared;
+
 import java.util.UUID;
 
 public class ExampleCancelAll {

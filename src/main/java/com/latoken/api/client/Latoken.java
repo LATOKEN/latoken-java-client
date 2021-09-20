@@ -5,6 +5,10 @@ import com.latoken.api.client.v2.AsyncRestV2Client;
 import com.latoken.api.client.v2.AsyncRestV2ClientImpl;
 import com.latoken.api.client.v2.WebsocketV2Client;
 import com.latoken.api.client.v2.WebsocketV2ClientImpl;
+import com.latoken.api.client.v3.AsyncRestV3Client;
+import com.latoken.api.client.v3.AsyncRestV3ClientImpl;
+import com.latoken.api.client.v3.WebsocketV3Client;
+import com.latoken.api.client.v3.WebsocketV3ClientImpl;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import org.jetbrains.annotations.NotNull;
@@ -80,5 +84,23 @@ public final class Latoken {
 
     private static ObjectMapper defaultObjectMapper() {
         return new ObjectMapper();
+    }
+
+
+
+
+    public static AsyncRestV3Client asyncClientV3(
+        @NotNull String key,
+        @NotNull String sec
+    ) {
+        return new AsyncRestV3ClientImpl(asyncClientV2(key, sec));
+    }
+
+
+    public static WebsocketV3Client websocketV3Client(
+        @NotNull String key,
+        @NotNull String sec
+    ) {
+        return new WebsocketV3ClientImpl(websocketV2Client(key, sec));
     }
 }
