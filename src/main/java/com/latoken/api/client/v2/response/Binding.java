@@ -1,11 +1,13 @@
 package com.latoken.api.client.v2.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.util.Map;
 import java.util.UUID;
 
-@Data
+@Data 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public final class Binding {
     private UUID id;
     private UUID currencyProvider;

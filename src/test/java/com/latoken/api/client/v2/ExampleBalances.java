@@ -6,9 +6,5 @@ public class ExampleBalances {
          .getBalances(false)
          .get() // we block since it's acceptable for this example
          .forEach(System.out::println);
-      Shared.restV2()
-         .getBalances(false)
-         .get() // we block since it's acceptable for this example
-         .forEach(System.out::println);
    }
 }
