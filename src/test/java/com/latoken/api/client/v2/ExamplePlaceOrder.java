@@ -5,7 +5,6 @@ import com.latoken.api.client.v2.response.Ack;
 
 public class ExamplePlaceOrder {
    public static void main(String[] args) throws Exception {
-
       Ack response = Shared.restV2().placeOrder(
          Shared.BTC,
          Shared.USDT,
@@ -20,8 +19,6 @@ public class ExamplePlaceOrder {
 
       Thread.sleep(1000);
       System.out.println(Shared.restV2().getOrderById(response.getId()).get());
-
-
       System.out.println(response);
    }
 }

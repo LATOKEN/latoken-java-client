@@ -8,7 +8,6 @@ public class ExampleSubscriptionRawStompTicker {
    static Logger logger = LoggerFactory.getLogger(ExampleSubscriptionRawStompTicker.class);
 
    public static void main(String[] args) throws Exception {
-
       SpringStompClient client = new SpringStompClient(
          "wss://api.latoken.com/stomp",
          runnable -> {

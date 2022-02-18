@@ -9,8 +9,5 @@ public class ExampleOrders {
          .stream()
          .filter(order -> order.getStatus() == Order.Status.ORDER_STATUS_PLACED)
          .forEach(System.out::println);
-
-
-
    }
 }

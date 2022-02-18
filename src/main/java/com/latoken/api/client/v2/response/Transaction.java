@@ -1,10 +1,12 @@
 package com.latoken.api.client.v2.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.util.UUID;
 
-@Data
+@Data 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public final class Transaction {
 //      public enum Status{
 //            TRANSACTION_STATUS_EXECUTED,
